@@ -1,12 +1,14 @@
 package seedu.duke.model;
 
 import seedu.duke.model.exception.DuplicateShelfException;
-import seedu.duke.model.exception.IllegalArgumentException;
+import seedu.duke.model.exception.IllegalModelArgumentException;
 import seedu.duke.model.exception.ItemNotExistException;
 import seedu.duke.model.exception.ShelfNotExistException;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
+//@@author yuejunfeng0909
 /**
  * Represents a collection of ItemContainers.
  * Provides methods to better manage ItemContainers.
@@ -15,7 +17,7 @@ import java.util.ArrayList;
 public class ShelfList {
 
     private static ShelfList shelfList;
-    ArrayList<Shelf> shelves;
+    private ArrayList<Shelf> shelves;
 
     private ShelfList() {
         shelves = new ArrayList<Shelf>();
@@ -28,34 +30,40 @@ public class ShelfList {
         return shelfList;
     }
 
+    public ArrayList<Shelf> getShelves() {
+        return shelves;
+    }
+
     public void resetShelfList() {
         shelves = new ArrayList<>();
     }
 
     /**
      * Adds the specified shelf to the ShelfList.
-     * (not recommended, as this method skips some checks)
+     * (not recommended, as this method skips some essential checks)
      *
      * @param shelf The Shelf to be added
      */
-    public void addShelf(Shelf shelf) {
+    protected void addShelf(Shelf shelf) {
         shelves.add(shelf);
+        Comparator<Shelf> byName = (Shelf o1, Shelf o2) -> o1.getName().compareTo(o2.getName());
+        shelves.sort(byName);
     }
 
     /**
      * Creates a new Shelf with the specified name in the ShelfList.
      *
      * @param name The name of the new Shelf
-     * @throws IllegalArgumentException        if name does not follow the format
-     * @throws DuplicateShelfException if there already exist a Shelf with this name
+     *
+     * @throws IllegalModelArgumentException if name does not follow the format
+     * @throws DuplicateShelfException       if there already exist a Shelf with this name
      */
-    public Shelf addShelf(String name) throws IllegalArgumentException, DuplicateShelfException {
+    public Shelf addShelf(String name) throws IllegalModelArgumentException, DuplicateShelfException {
         if (existShelf(name)) {
             throw new DuplicateShelfException(name);
         }
 
         Shelf temp = new Shelf(name);
-        shelves.add(temp);
         return temp;
     }
 
@@ -63,9 +71,10 @@ public class ShelfList {
      * Remove the item container from the ShelfList.
      *
      * @param shelf The Shelf to be removed
+     *
      * @throws ShelfNotExistException If the Shelf is not in the ShelfList
      */
-    public void deleteShelf(Shelf shelf) throws ShelfNotExistException {
+    protected void deleteShelf(Shelf shelf) throws ShelfNotExistException {
         if (!shelves.remove(shelf)) {
             throw new ShelfNotExistException(shelf.getName());
         }
@@ -76,6 +85,7 @@ public class ShelfList {
      * Remove the Shelf with the specified name from the ShelfList.
      *
      * @param name Name of the Shelf to be removed
+     *
      * @throws ShelfNotExistException If no Shelf in the ShelfList has the specified name
      */
     public void deleteShelf(String name) throws ShelfNotExistException {
@@ -86,7 +96,9 @@ public class ShelfList {
      * Returns the Shelf with the specified name.
      *
      * @param name The name of the Shelf
+     *
      * @return The Shelf that matches the specified name
+     *
      * @throws ShelfNotExistException If no Shelf in the ShelfList has the specified name
      */
     public Shelf getShelf(String name) throws ShelfNotExistException {
@@ -102,6 +114,7 @@ public class ShelfList {
      * Check if there exists an item container with the specified name.
      *
      * @param name name of the item container
+     *
      * @return true if there exists
      */
     public boolean existShelf(String name) {
@@ -111,6 +124,15 @@ public class ShelfList {
             return false;
         }
         return true;
+    }
+
+    /**
+     * Return the total number of shelves.
+     *
+     * @return Number of shelves
+     */
+    public int getNumberOfShelves() {
+        return shelves.size();
     }
 
     /**
@@ -124,14 +146,16 @@ public class ShelfList {
             temp.append(container.getName());
             temp.append("\n");
         }
-        return temp.toString();
+        return temp.toString().trim();
     }
 
     /**
      * Return the Shelf that is storing the specified Item.
      *
      * @param item The target item
+     *
      * @return The Shelf that contains the item
+     *
      * @throws ItemNotExistException If the item does not belong to any Shelf
      */
     public Shelf shelfOfItem(Item item) throws ItemNotExistException {
@@ -141,5 +165,24 @@ public class ShelfList {
             }
         }
         throw new ItemNotExistException(item.getName());
+    }
+
+
+    /**
+     * Get a unique item from the list of shelves.
+     *
+     * @param itemID The ID of the target item
+     *
+     * @return the item if it exists
+     *
+     * @throws ItemNotExistException if the target item with the given ID does not exist
+     */
+    public Item getItem(String itemID) throws ItemNotExistException {
+        for (Shelf shelf : shelves) {
+            if (shelf.containsGivenID(itemID)) {
+                return shelf.getItemByID(itemID);
+            }
+        }
+        throw new ItemNotExistException("with ID: " + itemID);
     }
 }

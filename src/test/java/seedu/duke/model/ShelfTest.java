@@ -2,9 +2,9 @@ package seedu.duke.model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import seedu.duke.model.exception.DuplicateShelfException;
 import seedu.duke.model.exception.DuplicateItemException;
-import seedu.duke.model.exception.IllegalArgumentException;
+import seedu.duke.model.exception.DuplicateShelfException;
+import seedu.duke.model.exception.IllegalModelArgumentException;
 import seedu.duke.model.exception.ItemNotExistException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+//@@author yuejunfeng0909
 class ShelfTest {
 
     Shelf testShelf;
@@ -20,18 +21,23 @@ class ShelfTest {
     ItemStub testItem3;
 
     @BeforeEach
-    void setup() throws IllegalArgumentException, DuplicateShelfException {
+    void setup() throws IllegalModelArgumentException, DuplicateShelfException {
         ShelfList.getShelfList().resetShelfList();
-        testShelf = new Shelf("testContainer");
+        testShelf = new Shelf("testShelf");
         testItem1 = new ItemStub("Item1");
         testItem2 = new ItemStub("Item2");
         testItem3 = new ItemStub("Item3");
     }
 
     @Test
-    void setName_correctInputFormat_setNormally() throws IllegalArgumentException, DuplicateShelfException {
+    void shelfConstructor_instantiateDuplicateShelves_throwsDuplicateShelfException() {
+        assertThrows(DuplicateShelfException.class, () -> new Shelf("testShelf"));
+    }
+
+    @Test
+    void setName_correctInputFormat_setNormally() throws IllegalModelArgumentException, DuplicateShelfException {
         String[] correctInputs =
-            new String[]{"The Lord of the Rings", "1984_someone", "A LEVEL H2 PHYSICS (TOPICAL) 2011-2020"};
+                new String[]{"The Lord of the Rings", "1984_someone", "A LEVEL H2 PHYSICS (TOPICAL) 2011-2020"};
         for (String input : correctInputs) {
             testShelf.setName(input);
             assertEquals(input, testShelf.getName());
@@ -42,7 +48,7 @@ class ShelfTest {
     void setName_wrongInputFormat_throwsInvalidFormatException() {
         String[] wrongInputs = new String[]{"", " ", "\t", "\n", " \r", "1984+", "Bazinga!", "something~"};
         for (String input : wrongInputs) {
-            assertThrows(IllegalArgumentException.class, () -> testShelf.setName(input));
+            assertThrows(IllegalModelArgumentException.class, () -> testShelf.setName(input));
         }
     }
 
@@ -115,7 +121,7 @@ class ShelfTest {
 
     @Test
     void updateItem_originalExistUpdatedNotExist_updateNormally() throws DuplicateItemException,
-            ItemNotExistException, IllegalArgumentException {
+            ItemNotExistException, IllegalModelArgumentException {
         testShelf.addItem(testItem1);
         testShelf.updateItem(testItem1, testItem2);
         assertEquals(1, testShelf.getItemCount());
