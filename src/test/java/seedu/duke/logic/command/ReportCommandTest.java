@@ -56,7 +56,7 @@ public class ReportCommandTest {
         String outputLine2 =
                 "-------------------------------------------------------------------------------------------------\n";
         String outputLine3 =
-                "1   | soldItem1                               | 11      | 12      | 1       |2021-11-04 11:30:00";
+                "1   | soldItem1                               | 11.00   | 12.00   | 1.00    |2021-11-04 11:30:00";
         String expectedOutput = outputLine1 + outputLine2 + outputLine3;
         assertTrue(testCommand.execute().equals(expectedOutput));
     }
