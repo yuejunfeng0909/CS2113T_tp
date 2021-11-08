@@ -56,8 +56,9 @@ Contributions
    <br />       
 
 
-5. **Review contribution**
-   * Reviewed teammate's PR [here](https://github.com/AY2122S1-CS2113T-F11-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3A%40me)
+5. **Review/Other contribution**
+   * Reviewed teammate's PR weekly
+   * Test the program for bugs and assign to myself or other teammates
    <br />
 
 6. **Community**
