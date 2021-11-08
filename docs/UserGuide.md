@@ -599,17 +599,17 @@ Users would be able to record the customer ratings and review of each item sold 
 
 ## FAQ
 
-**Q**: How do I transfer my data to another computer?
+### **Q**: How do I transfer my data to another computer?
 
 **A**: Copy the save file `data/Data.txt` on your current computer into the other computer that you wish to use. Launch
 the program again and the saved data should load.
 
-**Q**: What happens if my app crashes half-way?
+### **Q**: What happens if my app crashes half-way?
 
 **A**: Do not worry as your data will always be automatically saved in the text file whenever there are any changes made
 throughout the program. You can simply restart the program and your last updated data will be loaded.
 
-**Q**: I have some suggestions/found some bugs for CLIver Shelf, what should I do?
+### **Q**: I have some suggestions/found some bugs for CLIver Shelf, what should I do?
 
 **A**: Please do not hesitate to contact
 the [team](https://github.com/AY2122S1-CS2113T-F11-4/tp/blob/master/docs/AboutUs.md).
