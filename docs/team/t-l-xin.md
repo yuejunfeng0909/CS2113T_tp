@@ -36,13 +36,13 @@ Contributions
      * Added calculation methods to display sales statistics (profit, gross profit)
      * Improved function to view the statistics and items by between 2 time periods
    * IO-redirection input [#112](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/112)
-   * Added JUnit tests for `Parser`, `MarkUpCommand` & `SalesMarkUp` class [#43](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/43), [#197](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/197/files) 
+   * Added JUnit tests for `Parser`, `MarkUpCommand` & `SalesMarkUp` class [#43](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/43), [#197](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/197) 
    * Added customised error messages for `add`, `edit`, `report`, `markup` commands [#213](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/213)     
    * Fixed bugs found ([#197](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/197), [#233](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/233))
    <br />    
 
 4. **Documentation**
-   
+
    * User Guide
       * Updated user command input formats ([#95](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/95), [#118](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/118/files))
    * Developer Guide
@@ -50,10 +50,11 @@ Contributions
       * Implementation: 
         * Description & diagram for `markup` feature [#232](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/232)
         * Description for `report` & `sell` feature [#265](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/265) 
-      * Target User Profile [#77](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/77/files)
+      * Target User Profile [#77](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/77)
       * Non-functional requirements [#88](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/88)
-      * Manual Testing: `create`, `remove`, `report`, `sell`, `markup` [#106](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/106), [#213](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/213/files)
+      * Manual Testing: `create`, `remove`, `report`, `sell`, `markup` [#106](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/106), [#213](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/213)
    <br />       
+
 
 5. **Review contribution**
    * Reviewed teammate's PR [here](https://github.com/AY2122S1-CS2113T-F11-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3A%40me)
