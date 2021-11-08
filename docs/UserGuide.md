@@ -102,12 +102,12 @@ Expected outcome:
     : 4. Add item: add n/NAME shlv/SHELF_NAME p/PURCHASE_PRICE s/SELLING_PRICE q/QUANTITY [r/REMARKS] :
     : 5. Delete item: delete shlv/SHELF_NAME i/INDEX                                                  :
     : 6. List items: list [shlv/SHELF_NAME]                                                           :
-    : 7. Search item: search k/KEYWORD                                                                 :
+    : 7. Search item: search k/KEYWORD                                                                :
     : 8. Get information of item : get shlv/SHELF_NAME i/INDEX                                        :
     : 9. Edit an item: edit shlv/SHELF_NAME i/INDEX p/PROPERTY v/VALUE                                :
-    : 10. Sell an item: sell id/ITEM_ID                                                  :
+    : 10. Sell an item: sell id/ITEM_ID                                                               :
     : 11. Markup price of item: markup shlv/SHELF_NAME i/INDEX [%/PERCENT_MARKUP]                     :
-    : 12. Generate sales report: report t/CONTENT_TYPE ym/START-YEAR-MONTH [ym/END-YEAR-MONTH]                :
+    : 12. Generate sales report: report t/CONTENT_TYPE ym/START-YEAR-MONTH [ym/END-YEAR-MONTH]        :
     : 13. Exit program: bye                                                                           :
     ......................................................................................................
 ```
