@@ -5,7 +5,7 @@
 1. [Introduction](#introduction)
     1. [About CLIverShelf](#about-clivershelf)
     2. [Aim](#aim)
-    3. [Target Audience](#target-audience)
+    3. [Target Users](#target-users)
     4. [How To Use This Developer Guide](#how-to-use-this-developer-guide)
 2. [Setting up](#setting-up)
 3. [Acknowledgements](#acknowledgements)
