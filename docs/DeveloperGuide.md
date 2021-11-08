@@ -88,9 +88,9 @@ as any deviations may cause unexpected outcomes or cause application to not star
 
 ## Acknowledgements
 
-1. [addressbook-level3](https://se-education.org/addressbook-level3/)
+1. [AddressBook-level3](https://se-education.org/addressbook-level3/)
    <br> Inspired to design the overall program structure like AB3.
-2. [AddressBook (Level 2)](https://github.com/se-edu/addressbook-level2/blob/master/src/seedu/addressbook/parser/Parser.java)
+2. [AddressBook-level2](https://github.com/se-edu/addressbook-level2/blob/master/src/seedu/addressbook/parser/Parser.java)
    <br> Adapted Parser code from AddressBook (Level 2) which makes efficient use of Pattern matching to filter valid 
    inputs from invalid inputs. Created our own Pattern Regex to simplify the parsing process to capture the needed matching 
    groups, which also improves code readability instead of writing many lines of code to parse word by word. 
@@ -154,7 +154,7 @@ The class diagram below shows the associations between the classes that make up 
 The `Logic` component consists of `Parser`, `Command` and `Sales` components.
 
 1. After user enters input, `UI` fetches and passes it to `Parser` for parsing.
-2. Parser then returns a `Command` object, which is then executed.
+2. `Parser` then returns a `Command` object, which is then executed.
 3. The command execution directly affects the objects in the `Model` component.
 4. After execution, `Command` instructs the `UI` component to print out relevant output messages (e.g successful command
    execution or error messages)
@@ -187,9 +187,9 @@ This section will illustrate how the Parser interacts with `Clivershelf` class a
 1. `Command` is an abstract class and has an abstract method `execute()`.
 2. Specific commands, such as `AddCommand` or `DeleteCommand`, are the subclasses of `Command`. Each one of them is
    responsible for one function of the application, such as adding new items or deleting items.
-3. Specific commands will be instantiated inside the `parseCommand(userInputLine: String): Command` method of parser
-   and is then returned to the CliverShelf after they are instantiated.
-4. The CliverShelf will call the `execute()` method of the `Command` object to execute its specific function.
+3. Specific commands will be instantiated inside the `parseCommand(userInputLine: String): Command` method of `Parser`
+   and is then returned to the `CliverShelf` after they are instantiated.
+4. The `CliverShelf` will call the `execute()` method of the `Command` object to execute its specific function.
 5. The following sequence diagram illustrates how a general `Command` object interacts with other
    components of the system.
 6. More details about specific commands will be covered in the Implementation section.
