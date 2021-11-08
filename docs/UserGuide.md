@@ -85,6 +85,7 @@ With this, you are good to go :grey_exclamation:
 * :warning: Program **_only_** takes in input typed in **english** character set (specifically **US-ASCII**), does not accept input of other languages such as 
   Chinese characters, Japanese characters.
 * :warning: Index of items always start from **`1`**.
+* :warning: It is recommended to use this application in full screen or adjust the window size until the UI is shown properly.
 
 ## Features
 
