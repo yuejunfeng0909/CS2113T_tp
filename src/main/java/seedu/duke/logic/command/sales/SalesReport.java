@@ -133,12 +133,12 @@ public class SalesReport {
             String indexAsString = Wrapping.restrictMessageLength(Integer.toString(index), INDEX_TABLE_LENGTH);
             String name = selectedSoldItem.getName();
             name = Wrapping.restrictMessageLength(name, ITEM_TABLE_LENGTH);
-            String cost = selectedSoldItem.getPurchaseCost();
+            String cost = String.format("%.2f", Double.parseDouble(selectedSoldItem.getPurchaseCost()));
             String wrappedCost = Wrapping.restrictMessageLength(cost, COST_TABLE_LENGTH);
-            String price = selectedSoldItem.getSellingPrice();
+            String price = String.format("%.2f", Double.parseDouble(selectedSoldItem.getSellingPrice()));
             String wrappedPrice = Wrapping.restrictMessageLength(price, PRICE_TABLE_LENGTH);
             BigDecimal profit = new BigDecimal(price).subtract(new BigDecimal(cost));
-            String profitAsString = profit.toString();
+            String profitAsString = String.format("%.2f", Double.parseDouble(profit.toString()));
             profitAsString = Wrapping.restrictMessageLength(profitAsString, PROFIT_TABLE_LENGTH);
             DateTimeFormatter saleTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String saleTime = selectedSoldItem.getSaleTime().format(saleTimeFormatter);
