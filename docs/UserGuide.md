@@ -64,9 +64,9 @@ business, where they can view this information in a user-friendly manner.
 
 Let's first get to know the following 3 icons which may appear several times in this user guide 
 
-1. :warning: - IMPORTANT: Warns users that failure to follow this instruction may cause invalid inputs
-2. :pushpin: - INFO TO KEEP NOTE: General things to remember when running the program
-3. :information_source: - USEFUL INFO: Lets users know about extra useful information to run the commands 
+1. :warning: - **IMPORTANT**: Warns users that failure to follow this instruction may cause invalid inputs
+2. :pushpin: - **INFO TO KEEP NOTE**: General things to remember when running the program
+3. :information_source: - **USEFUL INFO**: Lets users know about extra useful information to run the commands 
 
 With this, you are good to go :grey_exclamation:
 
