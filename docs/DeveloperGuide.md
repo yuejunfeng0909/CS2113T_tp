@@ -171,7 +171,7 @@ This section will illustrate how the Parser interacts with `Clivershelf` class a
    the `Parser` to `parseCommand()`
 2. `Parser` first checks for basic command format, to extract the 1st word in the input which is the `commandWord`
 3. The `commandWord` would then be checked against the respective `COMMAND_STRINGS` such as `add`, `delete` , etc.
-4. If the `COMMAND_WORD` matches any of the strings, the function will proceed to execute
+4. If the `commandWord` matches any of the strings, the function will proceed to execute
    the `prepare{commandWord}(arguments)` function of the `Parser`
 5. Lastly, when the Parsing is complete, the `Parser` will return the `{commandWord}Command` object to the `CliverShelf`
    component, for `Clivershelf` to decide what to do with the `{commandWord}Command` object.
@@ -224,14 +224,16 @@ This sections describes how the classes in model component are structure and how
            Magazine.
         2. `purchaseCost`, the non-negative price the bookstore owner paid for the product.
         3. `sellingPrice`, the non-negative amount a buyer pays for the product.
-<br />
+        
+
 2. [Shelf.java](https://github.com/AY2122S1-CS2113T-F11-4/tp/blob/master/src/main/java/seedu/duke/model/Shelf.java)
     1. A `Shelf` object stores `Item` objects.
     2. All `Item` are stored in one and only one of the `Shelf` objects.
     3. A `Shelf` object can be instantiated using the constructor `new Shelf(name: String)`
        or `ShelfList.getShelfList().addShelf(name: String)`
     4. All `Shelf` objets are automatically recorded by `ShelfList` at instantiation.
-<br />
+    
+   
 3. [ShelfList.java](https://github.com/AY2122S1-CS2113T-F11-4/tp/blob/master/src/main/java/seedu/duke/model/ShelfList.java)
     1. The `ShelfList` stores all the shelves' data i.e., all `Shelf` objects
     2. `ShelfList` is implemented using Singleton Pattern. The single instance can be obtained
