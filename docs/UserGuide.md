@@ -62,7 +62,7 @@ business, where they can view this information in a user-friendly manner.
 
 ## Usage
 
-Lets first get to know the following icons which may appear many times in this user guide 
+Let's first get to know the following icons which may appear many times in this user guide 
 
 1. :warning: - warns users that failure to follow this instruction may cause invalid inputs
 2. :information_source: - lets users know about useful information to run the commands
