@@ -697,6 +697,20 @@ This section describes the steps to run and exit the program.
 | Invalid parameters | `list shlv/&` | Error message (invalid format) |
 | Missing parameters | `list shlv/` | Error message (invalid format) |
 
+### Search test
+
+* Format: `search k/KEYWORD`
+* Pre-requisite: None
+
+| Test Case  | Command | Expected Result|
+| ------------- | ------------- | ------------- |
+| Search for an item name| `search k/itemname` | List of all items that contains the name |
+| Listing out for every shelf | `list` | Listing of all items in every shelf in bookstore |
+| Non-existent shelf | `list shlv/nonexistshelf` | Error message prompting to create shelf first |
+| Missing flag | `list book1` | Error message (invalid format) |
+| Invalid parameters | `list shlv/&` | Error message (invalid format) |
+| Missing parameters | `list shlv/` | Error message (invalid format) |
+
 ### Editing an item test
 
 * Format: `edit shlv/SHELF_NAME i/INDEX p/PROPERTY v/VALUE`
