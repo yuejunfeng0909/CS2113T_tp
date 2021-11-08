@@ -32,8 +32,9 @@ business, where they can view this information in a user-friendly manner.
 
 1. Ensure that you have Java 11 or above installed.
 2. Download :arrow_down: the latest version of `CLIverShelf` from [here](https://github.com/AY2122S1-CS2113T-F11-4/tp/releases).
-3. Run `cd (path to the folder containing CLIverShelf.jar)` and `java -jar CLIverShelf.jar` to start using CLIvershelf.
-4. You should see the following:
+3. Run `cd (path to the folder containing CliverShelf.jar)` and `java -jar CliverShelf.jar` to start using CLIvershelf.
+4. **It is recommended to use this application in full screen or adjust the window size until the UI is shown properly.**
+5. You should see the following:
 
 ```
       .............................................................
@@ -51,14 +52,14 @@ business, where they can view this information in a user-friendly manner.
                 ......................................................
 ```
 
-5. Type `help` to see all the commands available. You may try some example commands below:
+6. Type `help` to see all the commands available. You may try some example commands below:
     * `create shlv/book1` - creates a new shelf named `book1`
     * `add n/Geronimo shlv/book1 p/15.90 s/23.99 q/10` - Adds a Book "Geronimo" to the shelf name "book1"
     * `delete shlv/book2 i/3` - Deletes item of `index 3` from the shelf `book2`
     * `list shlv/book1` - list the items from shelf name "book1"
     * `get shlv/book1 i/2` - get information about an item of `index 2` in shelf `book1`
     * `bye` - exit the app
-6. Refer to the [Features](#features) below for details of all available commands.
+7. Refer to the [Features](#features) below for details of all available commands.
 
 ## Usage
 
