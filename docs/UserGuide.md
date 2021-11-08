@@ -636,7 +636,7 @@ the [team](https://github.com/AY2122S1-CS2113T-F11-4/tp/blob/master/docs/AboutUs
 |**List**    | `list [shlv/SHELF_NAME]` <br> eg: `list shlv/stationary`                                                                                |
 |**Search**  | `search k/KEYWORD` <br> eg: `search k/sample item`
 |**Get**     | `get shlv/SHELF_NAME i/INDEX` <br> eg: `get shlv/book1 i/1`                                                         |
-|**Edit**    | `edit shlv/SHELF_NAME i/INDEX p/PROPERTY v/VALUE` <br> eg: `edit shlv/book1 i/1 p/cost v/100`                      |
+|**Edit**    | `edit shlv/SHELF_NAME i/INDEX p/PROPERTY v/VALUE` <br> eg: `edit shlv/book1 i/1 p/purchase cost v/100`                      |
 |**Sell**    | `sell id/ITEM_ID` <br> eg: `sell id/76a3e297`                                                                                    |
 |**Markup**  | `markup shlv/SHELF_NAME i/INDEX [%/PERCENT_MARKUP]` <br> eg: `markup shlv/book1 i/1 %/5`                                                                                    |
 |**Report**  | `report t/CONTENT_TYPE ym/START-YEAR-MONTH [ym/END-YEAR-MONTH]` <br> eg: `report c/stats ym/2021-10`                                                                                    |
