@@ -102,12 +102,12 @@ Expected outcome:
     : 4. Add item: add n/NAME shlv/SHELF_NAME p/PURCHASE_PRICE s/SELLING_PRICE q/QUANTITY [r/REMARKS] :
     : 5. Delete item: delete shlv/SHELF_NAME i/INDEX                                                  :
     : 6. List items: list [shlv/SHELF_NAME]                                                           :
-    : 7. Search item: search k/KEYWORD                                                                 :
+    : 7. Search item: search k/KEYWORD                                                                :
     : 8. Get information of item : get shlv/SHELF_NAME i/INDEX                                        :
     : 9. Edit an item: edit shlv/SHELF_NAME i/INDEX p/PROPERTY v/VALUE                                :
-    : 10. Sell an item: sell id/ITEM_ID                                                  :
+    : 10. Sell an item: sell id/ITEM_ID                                                               :
     : 11. Markup price of item: markup shlv/SHELF_NAME i/INDEX [%/PERCENT_MARKUP]                     :
-    : 12. Generate sales report: report t/CONTENT_TYPE ym/START-YEAR-MONTH [ym/END-YEAR-MONTH]                :
+    : 12. Generate sales report: report t/CONTENT_TYPE ym/START-YEAR-MONTH [ym/END-YEAR-MONTH]        :
     : 13. Exit program: bye                                                                           :
     ......................................................................................................
 ```
@@ -116,8 +116,8 @@ Expected outcome:
 
 Creates a shelf to store items.
 
-> :warning: **Note that shelf has to be first created before [item can be added](#add-new-items).**
-
+> :warning: **Note that shelf has to be first created before [an item can be added](#add-new-items).**
+> 
 > :warning: **Note `SHELF_NAME` should only consist of alphabets and integers (Eg: `book1`)**
 
 Format: `create shlv/SHELF_NAME`
@@ -246,7 +246,7 @@ quantity, and if they have remarks.
 > :information_source: Under remarks, 
 > * `x` signifies that the item does not have any remarks
 > * `o` signifies that it has remarks.
-
+> 
 > :information_source: Users can use the [`get` function](#get-information-about-an-item) to display the items' ID and remarks.
 
 Format: `list [shlv/SHELF_NAME]`
@@ -403,7 +403,7 @@ Updates the properties of an item. You need to specify which item to edit using 
 shelf, and you also need to specify which property you want to edit and what the new value will be.
 
 > :information_source: **For index, we accept both truncated and raw inputs (e.g. for index 1, both "1" and "001" are accepted.)**
-
+>
 > :information_source: Only 3 `p/PROPERTY` can be edited. Use
 > * `p/purchase cost` to select the cost of the item to edit
 > * `p/selling price` to select the item price to edit
@@ -482,9 +482,9 @@ If no user markup percent is specified, CLIvershelf will calculate the percent m
 Format: `markup shlv/SHELF_NAME i/INDEX [%/PERCENT_MARKUP]`
 
 > :information_source: **For index, we accept both truncated and raw inputs (e.g. for index 1, both "1" and "001" are accepted.)**
-
+>
 > :information_source: If no user markup percent is specified, CLIvershelf will calculate the percent markup in multiples of 20.
-
+>
 > :warning: Maximum allowed percentage is 999.99% (Only up to 2 decimal points input is allowed)
 
 Example: **Check the markup percent estimates of the item `index 2` in shelf `book1`**
@@ -538,11 +538,11 @@ Format: `report t/CONTENT_TYPE ym/START-YEAR-MONTH [ym/END-YEAR-MONTH]`
 > :information_source: Only 2 `CONTENT_TYPE` can be specified
 > * `t/stats` to view statistics of sold items 
 > * `t/items` to view the list of all items
-
+>
 > :information_source: If only 1 `ym/START-YEAR-MONTH` parameter is specified, report will be generated for that particular month in the specified year.
 <br> If both `ym/START-YEAR-MONTH` & `ym/END-YEAR-MONTH` are specified, report in between the 2 date ranges (inclusive of the months specified) will be generated.
-
- > :warning: `ym/START-YEAR-MONTH` & `ym/END-YEAR-MONTH` need to follow the format `ym/YYYY-MM`
+>
+> :warning: `ym/START-YEAR-MONTH` & `ym/END-YEAR-MONTH` need to follow the format `ym/YYYY-MM`
 <br> e.g. Jan 2020 is represented as `ym/2020-01` or Dec 2021 is `ym/2021-12`
 
 Example: **Generate sales report for the month of Nov 2021**
@@ -599,17 +599,17 @@ Users would be able to record the customer ratings and review of each item sold 
 
 ## FAQ
 
-**Q**: How do I transfer my data to another computer?
+### **Q**: How do I transfer my data to another computer?
 
 **A**: Copy the save file `data/Data.txt` on your current computer into the other computer that you wish to use. Launch
 the program again and the saved data should load.
 
-**Q**: What happens if my app crashes half-way?
+### **Q**: What happens if my app crashes half-way?
 
 **A**: Do not worry as your data will always be automatically saved in the text file whenever there are any changes made
 throughout the program. You can simply restart the program and your last updated data will be loaded.
 
-**Q**: I have some suggestions/found some bugs for CLIver Shelf, what should I do?
+### **Q**: I have some suggestions/found some bugs for CLIver Shelf, what should I do?
 
 **A**: Please do not hesitate to contact
 the [team](https://github.com/AY2122S1-CS2113T-F11-4/tp/blob/master/docs/AboutUs.md).

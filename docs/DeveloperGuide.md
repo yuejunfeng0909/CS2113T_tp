@@ -6,6 +6,7 @@
     1. [About CLIverShelf](#about-clivershelf)
     2. [Aim](#aim)
     3. [Target Audience](#target-audience)
+    4. [How To Use This Developer Guide](#how-to-use-this-developer-guide)
     4. [Acknowledgements](#acknowledgements)
 2. [Setting up](#setting-up)
 3. [Design](#design)
@@ -44,8 +45,12 @@ This developer guide describes the design, implementation and architecture of **
 to get developers and potential contributors to get familiarised with the implementation of **CLIverShelf**.
 
 
-### Target Audience
+### Target Users
 This developer guide is for developers who want to understand, test or improve the design of **CLIverShelf**.
+
+### How to Use This Developer Guide
+* There are hyperlinks to different sections of this documentation in Table of Contents. Click any of them to jump to the corresponding section.
+* There are also hyperlinks of APIs in the Design section. Click the hyperlink to view the full code of corresponding API in GitHub.
 
 ### Acknowledgements
 
