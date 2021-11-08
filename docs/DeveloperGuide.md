@@ -5,7 +5,7 @@
 1. [Introduction](#introduction)
     1. [About CLIverShelf](#about-clivershelf)
     2. [Aim](#aim)
-    3. [Target Users](#target-users)
+    3. [Target Audience](#target-audience)
     4. [How To Use This Developer Guide](#how-to-use-this-developer-guide)
     4. [Acknowledgements](#acknowledgements)
 2. [Setting up](#setting-up)
@@ -45,7 +45,7 @@ This developer guide describes the design, implementation and architecture of **
 to get developers and potential contributors to get familiarised with the implementation of **CLIverShelf**.
 
 
-### Target Users
+### Target Audience
 This developer guide is for developers who want to understand, test or improve the design of **CLIverShelf**.
 
 ### How to Use This Developer Guide
