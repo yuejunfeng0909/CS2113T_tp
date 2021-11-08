@@ -32,7 +32,7 @@ business, where they can view this information in a user-friendly manner.
 
 1. Ensure that you have Java 11 or above installed.
 2. Download :arrow_down: the latest version of `CLIverShelf` from [here](https://github.com/AY2122S1-CS2113T-F11-4/tp/releases).
-3. Run `cd (path to the folder containing CLIverShelf.jar)` and `java -jar CliverShelf.jar` to start using CLIvershelf.
+3. Run `cd (path to the folder containing CliverShelf.jar)` and `java -jar CliverShelf.jar` to start using CLIvershelf.
 4. **It is recommended to use this application in full screen or adjust the window size until the UI is shown properly.**
 5. You should see the following:
 
