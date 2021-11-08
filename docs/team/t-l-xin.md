@@ -23,7 +23,7 @@ Contributions
    
 2. **Features**
    
-   MarkUpCommand [#112](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/112)
+   `MarkUpCommand` [#112](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/112)
       * What it does: Allows users to view current item markup and calculate the markup pricing estimates.
       * Justification: This feature allows better decision-making for the user, it allows the user to check current 
       and estimated markup prices easily without the need to use an additional device such as a calculator.
