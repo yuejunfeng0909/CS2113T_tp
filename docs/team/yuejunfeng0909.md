@@ -82,5 +82,5 @@ Given below are my contributions to the project.
           [model](https://ay2122s1-cs2113t-f11-4.github.io/tp/DeveloperGuide.html#model-component)
           and [storage](https://ay2122s1-cs2113t-f11-4.github.io/tp/DeveloperGuide.html#storage-component)
         * Contributed to [user stories](https://ay2122s1-cs2113t-f11-4.github.io/tp/DeveloperGuide.html#user-stories)
-* Community:
+* **Community**:
     * Found [10+ bugs](https://github.com/yuejunfeng0909/ped/issues) for another application under CS2113T
