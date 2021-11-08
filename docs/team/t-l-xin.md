@@ -1,6 +1,6 @@
 # Tan Li Xin - Project Portfolio Page
 
-## Overview
+## Project: CLIverShelf
 CLIvershelf is a Java command line desktop application that helps small bookstore owners to keep track of item 
 inventory, store finances and present it in a user-friendly manner, which enables better efficient management. 
 
