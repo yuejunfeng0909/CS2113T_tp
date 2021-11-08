@@ -57,8 +57,10 @@ Contributions
 
 
 5. **Review/Other contribution**
-   * Reviewed teammate's PR weekly
-   * Test the program for bugs and assign to myself or other teammates
+   * Reviewed teammate's PR weekly 
+     * E.g. [#61](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/61), [#27](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/27), [#60](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/60) 
+   * Test the program for bugs and assign to other teammates
+     * E.g. [#205](https://github.com/AY2122S1-CS2113T-F11-4/tp/issues/205), [#204](https://github.com/AY2122S1-CS2113T-F11-4/tp/issues/204)
    <br />
 
 6. **Community**
