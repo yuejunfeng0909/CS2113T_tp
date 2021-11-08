@@ -548,7 +548,8 @@ Format: `report t/CONTENT_TYPE ym/START-YEAR-MONTH [ym/END-YEAR-MONTH]`
 > * `t/items` to view the list of all items
 
 > :information_source: If only 1 `ym/START-YEAR-MONTH` parameter is specified, report will be generated for that particular month in the specified year.
-<br> If both `ym/START-YEAR-MONTH` & `ym/END-YEAR-MONTH` are specified, report in between the 2 date ranges (inclusive of the months specified) will be generated.
+
+> :information_source: If both `ym/START-YEAR-MONTH` & `ym/END-YEAR-MONTH` are specified, report in between the 2 date ranges (inclusive of the months specified) will be generated.
 
 > :warning: `ym/START-YEAR-MONTH` & `ym/END-YEAR-MONTH` need to follow the format `ym/YYYY-MM`
 <br> e.g. Jan 2020 is represented as `ym/2020-01` or Dec 2021 is `ym/2021-12`
