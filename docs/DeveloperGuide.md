@@ -45,7 +45,7 @@ This developer guide describes the design, implementation and architecture of **
 to get developers and potential contributors to get familiarised with the implementation of **CLIverShelf**.
 
 
-### Target Users
+### Target Audience
 This developer guide is for developers who want to understand, test or improve the design of **CLIverShelf**.
 
 ### How to Use This Developer Guide
