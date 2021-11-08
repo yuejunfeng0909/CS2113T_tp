@@ -25,9 +25,9 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//@@author t-l-xin-reused
 // Parser class adapted from
 // https://github.com/se-edu/addressbook-level2/blob/master/src/seedu/addressbook/parser/Parser.java
-
 /**
  * Parser Class. Manages parsing of user input for different commands.
  */
@@ -70,7 +70,7 @@ public class Parser {
             Pattern.compile("shlv/(?<shelfName>[a-zA-Z0-9 _()-]+)");
 
     public static final Pattern SELL_ITEM_DATA_ARGS_FORMAT =
-            Pattern.compile("id/(?<ID>[^/]{8}+)");
+            Pattern.compile("id/(?<ID>[0-9a-f]{8}+)$"); //only hex characters are allowed
 
     public static final Pattern REPORT_DATA_ARGS_FORMAT =
             Pattern.compile("t/(?<type>(stats|items))"

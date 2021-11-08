@@ -4,7 +4,7 @@ hide circle
 skinparam classAttributeIconSize 0
 hide empty members
 
-class CLIverShelf
+class CliverShelf
 
 package "Logic Component" <<Rectangle>> {
     package "Non-sales related Commands" <<Rectangle>> #line.dashed{
@@ -16,7 +16,6 @@ package "Logic Component" <<Rectangle>> {
         class GetCommand
         class ListCommand
         class SearchCommand
-        class ExitCommand
         class HelpCommand
     }
     class Parser
@@ -28,12 +27,11 @@ package "Logic Component" <<Rectangle>> {
     }
 
     class Sales
-
     abstract class "{abstract}\n Command" as command
 
 }
 
-CLIverShelf "creates"--> "1" Parser
+CliverShelf "creates"--> "1" Parser
 
 Parser --> CreateShelfCommand
 Parser --> RemoveShelfCommand
@@ -43,10 +41,12 @@ Parser --> EditCommand
 Parser --> GetCommand
 Parser --> ListCommand
 Parser --> SearchCommand
-Parser --> ExitCommand
+
 Parser --> ReportCommand
 Parser --> MarkupCommand
 Parser --> HelpCommand
+
+
 
 CreateShelfCommand --|> command
 RemoveShelfCommand --|> command
@@ -56,7 +56,7 @@ EditCommand --|> command
 GetCommand --|> command
 ListCommand --|> command
 SearchCommand --|> command
-ExitCommand --|> command
+
 SellCommand --|> command
 SellCommand --> Sales
 ReportCommand --|> command
