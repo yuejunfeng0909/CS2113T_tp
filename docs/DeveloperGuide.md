@@ -34,7 +34,7 @@
 ## Introduction
 
 ### About CLIverShelf
-Welcome to CLIverShelf!
+Welcome to CLIverShelf :smiley:
 
 **CLIverShelf** is a desktop command line interface-based app for bookstore owners to manage their bookstore. With
 **CLIverShelf**, owners can easily keep track of their items in their shelves, and even generate a sales report so that
@@ -71,8 +71,8 @@ as any deviations may cause unexpected outcomes or cause application to not star
 4. Import the project
     1. Click `File` > `Open Project`
     2. Select the project directory, and click `OK` to accept the default settings
-5. Verify the setup: After the importing is complete, locate `CLIverShelf.java` file, right-click it
-   and `Run 'CLIverShelf.main()'`. If the setup is correct, you should see something like this:
+5. Verify the setup: After the importing is complete, locate `CliverShelf.java` file, right-click it
+   and `Run 'CliverShelf.main()'`. If the setup is correct, you should see something like this:
 
 ```
       .............................................................
@@ -92,9 +92,9 @@ as any deviations may cause unexpected outcomes or cause application to not star
 
 ## Acknowledgements
 
-1. [addressbook-level3](https://se-education.org/addressbook-level3/)
+1. [AddressBook-level3](https://se-education.org/addressbook-level3/)
    <br> Inspired to design the overall program structure like AB3.
-2. [AddressBook (Level 2)](https://github.com/se-edu/addressbook-level2/blob/master/src/seedu/addressbook/parser/Parser.java)
+2. [AddressBook-level2](https://github.com/se-edu/addressbook-level2/blob/master/src/seedu/addressbook/parser/Parser.java)
    <br> Adapted Parser code from AddressBook (Level 2) which makes efficient use of Pattern matching to filter valid 
    inputs from invalid inputs. Created our own Pattern Regex to simplify the parsing process to capture the needed matching 
    groups, which also improves code readability instead of writing many lines of code to parse word by word. 
@@ -111,7 +111,7 @@ This section will briefly describe the overall design and structure of major com
 
 The architecture diagram above describes the design of CLIverShelf. The main components are:
 
-1. `CLIverShelf` Responsible for initializing the various components and connecting them up with one another at app
+1. `CliverShelf` Responsible for initializing the various components and connecting them up with one another at app
    launch.
 2. `UI`: Handles the interactions with the user.
 3. `Logic`: Parses and executes the user input commands.
@@ -125,10 +125,10 @@ This section illustrates how the major components interact with each other durin
 ![](diagrams/Architecture_GeneralProgramFlowSequenceDiagram.svg)
 
 1. User runs the programs & input user commands
-2. `CLIverShelf` calls `Parser` to `parseCommand()`
+2. `CliverShelf` calls `Parser` to `parseCommand()`
 3. `Parser` creates and returns a `Command` object when parsed successful
-4. `CLIverShelf` calls the `Command` object to `execute()`, and it returns a String `result`
-5. `CLIverShelf` instantiates `UI` component to print the `result`
+4. `CliverShelf` calls the `Command` object to `execute()`, and it returns a String `result`
+5. `CliverShelf` instantiates `UI` component to print the `result`
 
 
 ### UI component
@@ -157,17 +157,15 @@ The class diagram below shows the associations between the classes that make up 
 
 The `Logic` component consists of `Parser`, `Command` and `Sales` components.
 
-1. After user enters input, `UI` fetches and passes it to Parser for parsing.
-2. Parser then returns a `Command` object, which is then executed.
-3. The command execution directly affects the objects in the `Model` component.
-4. After execution, `Command` instructs the `UI` component to print out relevant output messages (e.g successful command
+1. After user enters input, `CliverShelf` creates `Parser`.
+2. The input is parsed within `Parser`, generating a `Command` object, which is then executed.
+3. For sales-related commands, `Sales` is also used.
+4. After execution, the relevant output generated from `Command` is then generated to the user (e.g. successful command
    execution or error messages)
-5. `Command` then checks the `ExitCommand` on whether the program should exit.
-6. In the absence of `ExitCommand`, UI then takes over to prompt and process the next user input.
 
 ### Logic: Subcomponent Parser
 
-This section will illustrate how the Parser interacts with `CLIvershelf` class and different `Command` classes.
+This section will illustrate how the Parser interacts with `Clivershelf` class and different `Command` classes.
 
 **API**: [Parser.java](https://github.com/AY2122S1-CS2113T-F11-4/tp/blob/master/src/main/java/seedu/duke/logic/parser/Parser.java)
 
@@ -175,12 +173,12 @@ This section will illustrate how the Parser interacts with `CLIvershelf` class a
 
 1. When user enters a command into the terminal, upon submission, `CliverShelf` receives the input line and calls
    the `Parser` to `parseCommand()`
-2. `Parser` first checks for BASIC_COMMAND_FORMAT, to extract the 1st word in the input which is the `commandWord`
-3. The commandWord would then be checked against the respective `COMMAND_STRINGS` such as `add`, `delete` , etc.
+2. `Parser` first checks for basic command format, to extract the 1st word in the input which is the `commandWord`
+3. The `commandWord` would then be checked against the respective `COMMAND_STRINGS` such as `add`, `delete` , etc.
 4. If the `COMMAND_WORD` matches any of the strings, the function will proceed to execute
    the `prepare{commandWord}(arguments)` function of the `Parser`
-5. Lastly, when the Parsing is complete, the Parser will return the `{commandWord}Command` object to the `CliverShelf`
-   component, for `CLIvershelf` to decide what to do with the `{commandWord}Command` object.
+5. Lastly, when the Parsing is complete, the `Parser` will return the `{commandWord}Command` object to the `CliverShelf`
+   component, for `Clivershelf` to decide what to do with the `{commandWord}Command` object.
 
 ### Logic: Subcomponent Command
 
@@ -191,9 +189,9 @@ This section will illustrate how the Parser interacts with `CLIvershelf` class a
 1. `Command` is an abstract class and has an abstract method `execute()`.
 2. Specific commands, such as `AddCommand` or `DeleteCommand`, are the subclasses of `Command`. Each one of them is
    responsible for one function of the application, such as adding new items or deleting items.
-3. Specific commands will be instantiated inside the `parseCommand(userInputLine: String): Command` method of parser
-   and is then returned to the CLIverShelf after they are instantiated.
-4. The CLIverShelf will call the `execute()` method of the `Command` object to execute its specific function.
+3. Specific commands will be instantiated inside the `parseCommand(userInputLine: String): Command` method of `Parser`
+   and is then returned to the `CliverShelf` after they are instantiated.
+4. The `CliverShelf` will call the `execute()` method of the `Command` object to execute its specific function.
 5. The following sequence diagram illustrates how a general `Command` object interacts with other
    components of the system.
 6. More details about specific commands will be covered in the Implementation section.
@@ -211,10 +209,10 @@ After the command input is parsed, depending on the `Command` type, different ty
 ![](diagrams/SalesSubComponentClassDiagram.svg)
 
 The `Sales` subcomponent,
-* When CLIvershelf executes SellCommand, SellCommand calls the SalesManager to mark the item as sold.
-* When CLIvershelf executes MarkUpCommand, MarkUpCommand calls the SalesMarkUp to get markup information about the selected item. 
-* When CLIvershelf executes ReportCommand, ReportCommand calls the SalesReport to execute, and SalesReport will in turn 
-  call SalesManager to get the list of sold items for further processing. 
+* When `Clivershelf` executes `SellCommand`, `SellCommand` calls the `SalesManager` to mark the item as sold.
+* When `Clivershelf` executes `MarkUpCommand`, `MarkUpCommand` calls the `SalesMarkUp` to get markup information about the selected item. 
+* When `Clivershelf` executes `ReportCommand`, `ReportCommand` calls the `SalesReport` to execute, and `SalesReport` will in turn 
+  call `SalesManager` to get the list of sold items for further processing. 
 
 For more specific details, refer to implementation of [`SellCommand`](#selling-an-item), [`ReportCommand`](#generating-sales-report), and [`MarkUpCommand`](#generating-item-markup-price). 
 
@@ -230,12 +228,14 @@ This sections describes how the classes in model component are structure and how
            Magazine.
         2. `purchaseCost`, the non-negative price the bookstore owner paid for the product.
         3. `sellingPrice`, the non-negative amount a buyer pays for the product.
+<br />
 2. [Shelf.java](https://github.com/AY2122S1-CS2113T-F11-4/tp/blob/master/src/main/java/seedu/duke/model/Shelf.java)
     1. A `Shelf` object stores `Item` objects.
     2. All `Item` are stored in one and only one of the `Shelf` objects.
     3. A `Shelf` object can be instantiated using the constructor `new Shelf(name: String)`
        or `ShelfList.getShelfList().addShelf(name: String)`
     4. All `Shelf` objets are automatically recorded by `ShelfList` at instantiation.
+<br />
 3. [ShelfList.java](https://github.com/AY2122S1-CS2113T-F11-4/tp/blob/master/src/main/java/seedu/duke/model/ShelfList.java)
     1. The `ShelfList` stores all the shelves' data i.e., all `Shelf` objects
     2. `ShelfList` is implemented using Singleton Pattern. The single instance can be obtained
@@ -280,8 +280,8 @@ shelf.
 The user can add new items to a shelf by specifying the number of items, item details and the name of shelf to add to.
 
 1. As mentioned in the "Design" section, the `Parser` parses user input and returns the new `AddCommand` object to the
-   'CLIverShelf'.
-2. The `CLIverShelf` then invokes the `execute()` method of the `AddCommand` object.
+   `CliverShelf`.
+2. The `CliverShelf` then invokes the `execute()` method of the `AddCommand` object.
 3. The `AddCommand` object instantiates a new `item` object. It also invokes the `getShelf(shelfName: String)` method of
    the global `ShelfList` to get the specified `Shelf` object. Then, it calls the `addItem(newItem: Item)` method of
    the `Shelf` object to add the new `item` to this specific `Shelf`.
@@ -296,6 +296,7 @@ Aspect: How to set up the shelf to add to
     * Pros: Better control of the shelves.
     * Cons: User needs to create a shelf first.
 
+<br />
 
 * Alternative 2: If the shelf does not exist, the shelf with the name specified by the user will be automatically
   added.
@@ -309,12 +310,12 @@ Aspect: How to set up the shelf to add to
 The user can edit the property of an item in a shelf by specifying shelf name, item index, property to edit and new
 value.
 
-1. The `CLIverShelf` invokes the `execute()` method of the `EditCommand` object.
+1. The `CliverShelf` invokes the `execute()` method of the `EditCommand` object.
 2. The `EditCommand` object calls the `getShelf(shelfName: String)` method of the global `ShelfList` to get the
    specified shelf.
 3. If the shelf exists, the `EditCommand` object will invoke the `getItem(index: int)` method to get the selected item
    to update from the shelf. Then, the `EditCommand` object will call the `setPurchaseCost(newValue: String)`
-   or `setSellingPrice(newValue: String)` or `setRemarks(newValue: String)` of the `Item` object to to set the purchase
+   or `setSellingPrice(newValue: String)` or `setRemarks(newValue: String)` of the `Item` object to set the purchase
    cost, selling price or remarks of the item.
 4. If the specified shelf does not exist, the editing operation will fail.
 
@@ -326,6 +327,7 @@ Aspect: How to change a certain property precisely
     * Pros: Only need to change one property.
     * Cons: Need one additional step to check which property is selected by the user.
 
+<br />
 
 * Alternative 2: Let the user specify the new values for all properties just like adding a new item.
     * Pros: The user can change multiple properties at once using only one EditCommand.
@@ -344,20 +346,21 @@ A user can choose to either list out all the items in the bookstore (i.e. every 
     2. This invokes `Parser#parseCommand()`, and since the command argument is `list`, it will further
        invoke `Parser#prepareList()`.
     3. It will then construct a command `ListCommand` using `ListCommand(shelf: String)`, returning it back
-       to `CLIverShelf`.
-    4. Back in `CLIverShelf`, `ListCommand#execute()` is invoked and since `ListCommand(shelf: String)` is constructed,
+       to `CliverShelf`.
+    4. Back in `CliverShelf`, `ListCommand#execute()` is invoked and since `ListCommand(shelf: String)` is constructed,
        condition for `toPrintAll` is set to `false` and not satisfied. This invokes `ListCommand#getOneList()`
-    5. The string result output is then passed back to `CLIverShelf`.
+    5. The string result output is then passed back to `CliverShelf`.
 
+<br />
 
 * If user wishes to list out all the items in the bookstore:
     1. He keys in: `list`.
     2. This invokes `Parser#parseCommand()`, and since the input is `list` it will further invoke `Parser#prepareList()`
        .
-    3. It will then construct a command `ListCommand` using `ListCommand()`, returning it back to `CLIverShelf`.
-    4. Back in `CLIverShelf`, `ListCommand#execute()` is invoked, and since `ListCommand()` is constructed, condition
+    3. It will then construct a command `ListCommand` using `ListCommand()`, returning it back to `CliverShelf`.
+    4. Back in `CliverShelf`, `ListCommand#execute()` is invoked, and since `ListCommand()` is constructed, condition
        for `toPrintAll` is set to `true` and satisfied. This invokes `ListCommand#getEveryList()`
-    5. The string result output is then passed back to `CLIverShelf`.
+    5. The string result output is then passed back to `CliverShelf`.
 
 The Class Diagram below illustrates how the components work together in `ListCommand`
 
@@ -373,7 +376,8 @@ Aspect: Indexes of items on the list are not in single sequential order (i.e 1, 
       together (e.g. If there are 5 identical items, but you only want to change 1 of them because perhaps they are
       damaged, and you want to add a remark)
     * Cons: Looks less user-friendly
-  
+
+<br />
 
 * Alternative 2: The indexes of the list are printed in single sequential order.
     * Pros: Looks a lot neater as there is only 1 number instead of a range of numbers
@@ -388,7 +392,7 @@ The sequence diagram below shows how the feature of selling an item (SellCommand
 1. When program invokes `SellCommand#execute()`, `SellCommand` object validates the itemID from user input by trying to 
    get the item from the `ShelfList` through `ShelfList#getItem(itemID)`.
 2. Once it gets the item, `SellCommand` calls `SalesManager#sell()` to mark the item as sold.
-   <br> In `SalesManager#sell()`: 
+   <br /> In `SalesManager#sell()`: 
    1. It will try to get the `originalShelf` where the item to be sold belongs to
    2. Then delete the sold item from the `originalShelf` by the shelf name
    3. The function will first prepare to store the details of the soldItem 
@@ -397,7 +401,7 @@ The sequence diagram below shows how the feature of selling an item (SellCommand
       * Also, details of Item to be sold will be constructed as a new `SoldItem` object, represented by `newSoldItem`
    4. The `newSoldItem` will then be added to the `soldItemsShelf` via `Shelf#addItem(newSoldItem)`.
 3. Once the above steps are done, `SalesManager` will return a `finishedMessage`, which will then be passed back to 
-   `CLIverShelf` for printing.
+   `CliverShelf` for printing.
 
 #### Design considerations:
 
@@ -407,7 +411,9 @@ Aspect: How to determine the sale time
     * Pros: Does not need one additional parameter (sale time) from the user. Shorter command for the user.
     * Cons: Does not allow the user to manually set the sale time. Not very flexible for the user if he/she forgot
       to sell an item and wants to make up for it later on.
-  
+
+<br />
+
 * Alternative 2: Requires the user to specify the sale time.
     * Pros: More flexibility for the user to add on sale records that he/she forgot to add.
     * Cons: Needs one additional parameter from the user. Longer command.
@@ -420,12 +426,12 @@ This section will describe how the feature generating a sales report (ReportComm
 
 The simplified overview of report implementation is as follows: 
 
-1. `CLIverShelf` invokes `ReportCommand#execute()`
+1. `CliverShelf` invokes `ReportCommand#execute()`
 2. A `SalesReport` object which is named `newSalesReport` is created
 3. If the type specified in user input is `stats`, `SalesReport#generateSoldItemStats()` is called to get a string of
    sold item statistics represented by `statsReport` in the diagram.
 4. Else, `SalesReport#generateSoldItemDetails()` will be called to get the filtered SoldItem list in the form of a string 
-   before returning the String to `CLIverShelf` for printing.
+   before returning the String to `CliverShelf` for printing.
 
 The below diagram shows a more in-depth implementation of report feature. 
 
@@ -444,7 +450,7 @@ The more detailed inner workings of the report implementation is as follows:
      relevant statistical information needed, and returns a formatted string `salesStats`.
   6. `SalesReport` will return `salesStats` to `ReportCommand`.
   
-  <br>
+<br />
 
 * Case 2: user specifies `items` for type
   1. `ReportCommand#generateSoldItemDetails()` is executed.
@@ -464,6 +470,7 @@ Aspect how to show the report `stats` or `items` within a time period
     And also simple check if the `YearMonth` input is in correct order
   * Cons: Have to implement valid year restriction since, the max year accepted is a very large integer.
 
+<br />
 
 * Alternative 2: check the and the input manually by extracting the year and the month from the string, 
   then converting to integer for validity checking
@@ -479,8 +486,8 @@ This section will illustrate how the marking up of an item price (MarkUpCommand)
 
 A user may choose to check the estimated marked up price of an item, given a specific mark up percentage.
 
-1. After user input is parsed, a `MarkUpCommand` object is constructed & returned to `CLIvershelf`.
-2. CLIverShelf invokes `MarkUpCommand#execute()`
+1. After user input is parsed, a `MarkUpCommand` object is constructed & returned to `Clivershelf`.
+2. `CliverShelf` invokes `MarkUpCommand#execute()`
    1. A `SalesMarkUp` Object is constructed,
    2. Then `SalesMarkUp#getItemToMarkUpInfo()` is called
    3. followed by `SalesMarkUp#getSelectedItemMarkUpInfo()` to get the relevant information about the selected item
@@ -488,7 +495,7 @@ A user may choose to check the estimated marked up price of an item, given a spe
           which get the markup in percentage intervals of 20, returned as a string
        2. Else, `SalesMarkUp#getUserRequestMarkUpInfo()` is called to get the requested user percentage mark up
           information, returned as a string
-   4. All the strings received from calling functions in `SalesMarkUp`, will be appended and returned to `CLIvershelf`
+   4. All the strings received from calling functions in `SalesMarkUp`, will be appended and returned to `Clivershelf`
       as a `resultString` for printing.
 
 #### Design considerations:
@@ -499,6 +506,7 @@ Aspect: How markup executes:
     * Pros: Increases cohesiveness. Easier testing efforts.
     * Cons: More code written.
 
+<br />
 
 * Alternate 2: `SalesMarkUp` functions can be integrated with `SalesManager` class. However, having more methods in the same
   class
@@ -562,7 +570,7 @@ Allows efficient and simplified management of inventory and finances of the stor
 
 Given below are the instructions to test the app manually.
 
-&#8505; **Note:** These instructions only provide a base of how the app is currently being tested by the developing
+> :information_source: **Note:** These instructions only provide a base of how the app is currently being tested by the developing
 team. These test cases may and may not cover all possible outcomes. You are welcome to do more exploratory testing.
 Should there be any bugs, please do contact
 the [developing team](https://ay2122s1-cs2113t-f11-4.github.io/tp/AboutUs.html).
@@ -678,7 +686,7 @@ This section describes the steps to run and exit the program.
 | Test Case  | Command | Expected Result|
 | ------------- | ------------- | ------------- |
 | Listing out for existent shelf| `list shlv/existentshelf` | List of all items in that shelf |
-| Listing out for every shelf | `list` | Listing of all items in every shelf bookstore |
+| Listing out for every shelf | `list` | Listing of all items in every shelf in bookstore |
 | Non-existent shelf | `list shlv/nonexistshelf` | Error message prompting to create shelf first |
 | Missing flag | `list book1` | Error message (invalid format) |
 | Invalid parameters | `list shlv/&` | Error message (invalid format) |

@@ -19,15 +19,16 @@ Contributions
      The pattern regex customised to each `Command` and is checked after every edit to ensure that the regex is able to
      capture the correct matching groups. 
    * Credits: Adapted and reused Parser code from [AddressBook-2](https://github.com/se-edu/addressbook-level2/blob/master/src/seedu/addressbook/parser/Parser.java)
-           
-
+   <br />
+   
 2. **Features**
    
    MarkUpCommand [#112](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/112)
       * What it does: Allows users to view current item markup and calculate the markup pricing estimates.
       * Justification: This feature allows better decision-making for the user, it allows the user to check current 
       and estimated markup prices easily without the need to use an additional device such as a calculator.
-         
+
+<div style="page-break-after: always;"></div>
 
 3. **Enhancement to existing features**
 
@@ -35,29 +36,31 @@ Contributions
      * Added calculation methods to display sales statistics (profit, gross profit)
      * Improved function to view the statistics and items by between 2 time periods
    * IO-redirection input [#112](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/112)
-   * Added JUnit tests for `Parser`, `MarkUpCommand` & `SalesMarkUp` class [#43](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/43), [#197](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/197/files) 
+   * Added JUnit tests for `Parser`, `MarkUpCommand` & `SalesMarkUp` class [#43](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/43), [#197](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/197) 
    * Added customised error messages for `add`, `edit`, `report`, `markup` commands [#213](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/213)     
    * Fixed bugs found ([#197](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/197), [#233](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/233))
-       
+   <br />    
 
 4. **Documentation**
-   
-   User Guide
+
+   * User Guide
       * Updated user command input formats ([#95](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/95), [#118](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/118/files))
-   Developer Guide
+   * Developer Guide
       * Design: Subcomponent Sales diagram & description [#232](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/232)
       * Implementation: 
         * Description & diagram for `markup` feature [#232](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/232)
         * Description for `report` & `sell` feature [#265](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/265) 
-      * Target User Profile [#77](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/77/files)
+      * Target User Profile [#77](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/77)
       * Non-functional requirements [#88](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/88)
-      * Manual Testing: `create`, `remove`, `report`, `sell`, `markup` [#106](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/106), [#213](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/213/files)
-         
+      * Manual Testing: `create`, `remove`, `report`, `sell`, `markup` [#106](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/106), [#213](https://github.com/AY2122S1-CS2113T-F11-4/tp/pull/213)
+   <br />       
+
 
 5. **Review contribution**
    * Reviewed teammate's PR [here](https://github.com/AY2122S1-CS2113T-F11-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3A%40me)
-   
+   <br />
 
 6. **Community**
    * Reviewed another group's Developer's Guide [Team T09-1](https://github.com/nus-cs2113-AY2122S1/tp/pull/24)
    * Bugs in other team projects [PED link](https://github.com/t-l-xin/ped/issues)
+   <br />
