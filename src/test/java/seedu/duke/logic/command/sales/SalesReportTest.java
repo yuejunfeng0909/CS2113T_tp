@@ -69,7 +69,7 @@ public class SalesReportTest {
         String expectedOutput =
                 "No  |                    Item                 |  Cost   |  Price  |  Profit |      Sold Time    \n"
                 + "-------------------------------------------------------------------------------------------------\n"
-                + "1   | soldItem1                               | 11      | 12      | 1       |2021-11-04 11:30:00";
+                + "1   | soldItem1                               | 11.00   | 12.00   | 1.00    |2021-11-04 11:30:00";
         System.out.println(new SalesReport("2021-10", "2021-11").generateSoldItemDetails());
         assertEquals(expectedOutput,
                 new SalesReport("2021-10", "2021-11").generateSoldItemDetails());
