@@ -4,6 +4,7 @@ import seedu.duke.logic.command.exception.CommandException;
 import seedu.duke.model.Item;
 import seedu.duke.model.Shelf;
 import seedu.duke.model.ShelfList;
+import seedu.duke.model.exception.DeniedAccessToShelfModelException;
 import seedu.duke.model.exception.IllegalArgumentModelException;
 import seedu.duke.model.exception.ShelfNotExistModelException;
 import seedu.duke.ui.Wrapping;
@@ -48,7 +49,12 @@ public class SearchCommand extends Command {
         ArrayList<Item> searchResultMatchPrice = new ArrayList<>();
         ShelfList shelfList = ShelfList.getShelfList();
         for (String shelfName : shelfList.getAllShelvesName()) {
-            Shelf currentShelf = shelfList.getShelf(shelfName);
+            Shelf currentShelf = null;
+            try {
+                currentShelf = shelfList.getShelf(shelfName, true);
+            } catch (DeniedAccessToShelfModelException e) {
+                continue;
+            }
             for (int i = 0; i < currentShelf.getItemCount(); i++) {
                 Item currentItem = currentShelf.getItem(i);
                 if (currentItem.getID().toLowerCase().contains(keyword)) {
