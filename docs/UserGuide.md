@@ -62,10 +62,11 @@ business, where they can view this information in a user-friendly manner.
 
 ## Usage
 
-Let's first get to know the following icons which may appear many times in this user guide 
+Let's first get to know the following 3 icons which may appear several times in this user guide 
 
-1. :warning: - warns users that failure to follow this instruction may cause invalid inputs
-2. :information_source: - lets users know about useful information to run the commands
+1. :warning: - IMPORTANT: Warns users that failure to follow this instruction may cause invalid inputs
+2. :pushpin: - INFO TO KEEP NOTE: General things to remember when running the program
+3. :information_source: - USEFUL INFO: Lets users know about extra useful information to run the commands 
 
 With this, you are good to go :grey_exclamation:
 
@@ -176,7 +177,7 @@ any).
  
 > :warning: **Maximum quantity of items in a shelf is 999.**
  
-> :warning: **After successfully adding the item, 8 alphanumeric characters will be printed. This is the unique ID corresponding to the item. This ID will be used to required for [selling an item](#sell-an-item).**
+> :pushpin: **After successfully adding the item, 8 alphanumeric characters will be printed. This is the unique ID corresponding to the item. This ID will be used to required for [selling an item](#sell-an-item).**
 
 **As a bookstore owner, you are strongly encouraged to use this ID to label your item before putting the item on the
 real-life shelf. Later when the customer brings the item to the counter and pays, you will need to read the item ID from
@@ -222,7 +223,7 @@ Expected outcome:
 
 Deletes item from the inventory by specifying its shelf name and its index in the shelf.
 
-> :warning: **For index, we accept both truncated and raw inputs (e.g. for index 1, both "1" and "001" are accepted.)**
+> :information_source: **For index, we accept both truncated and raw inputs (e.g. for index 1, both "1" and "001" are accepted.)**
 
 
 Format: `delete shlv/SHELF_NAME i/INDEX`
@@ -371,7 +372,7 @@ Sample output:
 
 Retrieves information of an item.
 
-> :warning: **For index, we accept both truncated and raw inputs (e.g. for index 1, both "1" and "001" are accepted.)**
+> :information_source: **For index, we accept both truncated and raw inputs (e.g. for index 1, both "1" and "001" are accepted.)**
 
 Format: `get shlv/SHELF_NAME i/INDEX`
 
