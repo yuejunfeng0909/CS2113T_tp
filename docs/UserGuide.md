@@ -53,7 +53,7 @@ business, where they can view this information in a user-friendly manner.
 
 5. Type `help` to see all the commands available. You may try some example commands below:
     * `create shlv/book1` - creates a new shelf named `book1`
-    * `add  n/Geronimo shlv/book1 p/15.90 s/23.99 q/10` - Adds a Book "Geronimo" to the shelf name "book1"
+    * `add n/Geronimo shlv/book1 p/15.90 s/23.99 q/10` - Adds a Book "Geronimo" to the shelf name "book1"
     * `delete shlv/book2 i/3` - Deletes item of `index 3` from the shelf `book2`
     * `list shlv/book1` - list the items from shelf name "book1"
     * `get shlv/book1 i/2` - get information about an item of `index 2` in shelf `book1`
@@ -62,7 +62,15 @@ business, where they can view this information in a user-friendly manner.
 
 ## Usage
 
-Notes about the command format:
+Let's first get to know the following 3 icons which may appear several times in this user guide 
+
+1. :warning: - IMPORTANT: Warns users that failure to follow this instruction may cause invalid inputs
+2. :pushpin: - INFO TO KEEP NOTE: General things to remember when running the program
+3. :information_source: - USEFUL INFO: Lets users know about extra useful information to run the commands 
+
+With this, you are good to go :grey_exclamation:
+
+:pushpin: Notes about the command format:
 
 * Words in UPPER_CASE are the parameters to be supplied by the user. E.g., in delete `n/NAME`, `NAME` is the parameter
   which can be used as add n/Pilot Pen.
@@ -117,7 +125,7 @@ Expected outcome:
 Creates a shelf to store items.
 
 > :warning: **Note that shelf has to be first created before [an item can be added](#add-new-items).**
-> 
+ 
 > :warning: **Note `SHELF_NAME` should only consist of alphabets and integers (Eg: `book1`)**
 
 Format: `create shlv/SHELF_NAME`
@@ -166,10 +174,10 @@ any).
 **Important notes:**
 
 > :warning: **[Shelf has to be first created](#create-a-shelf) before item can be added.**
-> 
+ 
 > :warning: **Maximum quantity of items in a shelf is 999.**
-> 
-> :warning: **After successfully adding the item, 8 alphanumeric characters will be printed. This is the unique ID corresponding to the item. This ID will be used to required for [selling an item](#sell-an-item).**
+ 
+> :pushpin: **After successfully adding the item, 8 alphanumeric characters will be printed. This is the unique ID corresponding to the item. This ID will be used to required for [selling an item](#sell-an-item).**
 
 **As a bookstore owner, you are strongly encouraged to use this ID to label your item before putting the item on the
 real-life shelf. Later when the customer brings the item to the counter and pays, you will need to read the item ID from
@@ -215,7 +223,7 @@ Expected outcome:
 
 Deletes item from the inventory by specifying its shelf name and its index in the shelf.
 
-> :warning: **For index, we accept both truncated and raw inputs (e.g. for index 1, both "1" and "001" are accepted.)**
+> :information_source: **For index, we accept both truncated and raw inputs (e.g. for index 1, both "1" and "001" are accepted.)**
 
 
 Format: `delete shlv/SHELF_NAME i/INDEX`
@@ -246,7 +254,7 @@ quantity, and if they have remarks.
 > :information_source: Under remarks, 
 > * `x` signifies that the item does not have any remarks
 > * `o` signifies that it has remarks.
-> 
+
 > :information_source: Users can use the [`get` function](#get-information-about-an-item) to display the items' ID and remarks.
 
 Format: `list [shlv/SHELF_NAME]`
@@ -364,7 +372,7 @@ Sample output:
 
 Retrieves information of an item.
 
-> :warning: **For index, we accept both truncated and raw inputs (e.g. for index 1, both "1" and "001" are accepted.)**
+> :information_source: **For index, we accept both truncated and raw inputs (e.g. for index 1, both "1" and "001" are accepted.)**
 
 Format: `get shlv/SHELF_NAME i/INDEX`
 
@@ -403,7 +411,7 @@ Updates the properties of an item. You need to specify which item to edit using 
 shelf, and you also need to specify which property you want to edit and what the new value will be.
 
 > :information_source: **For index, we accept both truncated and raw inputs (e.g. for index 1, both "1" and "001" are accepted.)**
->
+
 > :information_source: Only 3 `p/PROPERTY` can be edited. Use
 > * `p/purchase cost` to select the cost of the item to edit
 > * `p/selling price` to select the item price to edit
@@ -453,7 +461,7 @@ Mark an item as sold. The item will be removed from the shelf and will be added 
 
 Format: `sell id/ITEM_ID`
 
-> :pushpin: the ID of an item is the 8 alphanumeric characters printed out after you have added the item to a shelf.   
+> :information_source: the ID of an item is the 8 alphanumeric characters printed out after you have added the item to a shelf.   
 
 Example: **Sell the book "Harry Potter" which was previously added in "Add new items" section. Its ID is 76a3e297.**
 
@@ -481,10 +489,10 @@ If no user markup percent is specified, CLIvershelf will calculate the percent m
 
 Format: `markup shlv/SHELF_NAME i/INDEX [%/PERCENT_MARKUP]`
 
-> :information_source: **For index, we accept both truncated and raw inputs (e.g. for index 1, both "1" and "001" are accepted.)**
->
 > :information_source: If no user markup percent is specified, CLIvershelf will calculate the percent markup in multiples of 20.
->
+
+> :information_source: **For index, we accept both truncated and raw inputs (e.g. for index 1, both "1" and "001" are accepted.)**
+
 > :warning: Maximum allowed percentage is 999.99% (Only up to 2 decimal points input is allowed)
 
 Example: **Check the markup percent estimates of the item `index 2` in shelf `book1`**
@@ -538,10 +546,11 @@ Format: `report t/CONTENT_TYPE ym/START-YEAR-MONTH [ym/END-YEAR-MONTH]`
 > :information_source: Only 2 `CONTENT_TYPE` can be specified
 > * `t/stats` to view statistics of sold items 
 > * `t/items` to view the list of all items
->
+
 > :information_source: If only 1 `ym/START-YEAR-MONTH` parameter is specified, report will be generated for that particular month in the specified year.
-<br> If both `ym/START-YEAR-MONTH` & `ym/END-YEAR-MONTH` are specified, report in between the 2 date ranges (inclusive of the months specified) will be generated.
->
+
+> :information_source: If both `ym/START-YEAR-MONTH` & `ym/END-YEAR-MONTH` are specified, report in between the 2 date ranges (inclusive of the months specified) will be generated.
+
 > :warning: `ym/START-YEAR-MONTH` & `ym/END-YEAR-MONTH` need to follow the format `ym/YYYY-MM`
 <br> e.g. Jan 2020 is represented as `ym/2020-01` or Dec 2021 is `ym/2021-12`
 
