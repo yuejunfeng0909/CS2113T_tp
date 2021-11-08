@@ -47,7 +47,7 @@ Given below are my contributions to the project.
 * **Contributions to the DG:**
     * Wrote the description and created corresponding sequence diagrams for: [Command](https://ay2122s1-cs2113t-f11-4.github.io/tp/DeveloperGuide.html#logic-subcomponent-command), [Adding an item](https://ay2122s1-cs2113t-f11-4.github.io/tp/DeveloperGuide.html#adding-an-item), [Editing an item](https://ay2122s1-cs2113t-f11-4.github.io/tp/DeveloperGuide.html#editing-an-item).
     * Created sequence diagrams for: [Selling an item](https://ay2122s1-cs2113t-f11-4.github.io/tp/DeveloperGuide.html#selling-an-item), [Generating sales report](https://ay2122s1-cs2113t-f11-4.github.io/tp/DeveloperGuide.html#generating-sales-report).
-    * Improved on the Introduction section, adding Aim, Target User and How to Use This Developer Guide sub-section: [Introduction](https://ay2122s1-cs2113t-f11-4.github.io/tp/DeveloperGuide.html#introduction) 
+    * Improved on the Introduction section, adding Aim, Target Audience and How to Use This Developer Guide sub-section: [Introduction](https://ay2122s1-cs2113t-f11-4.github.io/tp/DeveloperGuide.html#introduction) 
     * Adding the test cases, command and expected result of Creating a shelf test, Removing a shelf test, Adding an item
       test, Deleting an item test and Editing an item test: [Instructions for manual testing](https://ay2122s1-cs2113t-f11-4.github.io/tp/DeveloperGuide.html#instructions-for-manual-testing)
     * Reviewed the parts written by other teammates.
