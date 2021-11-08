@@ -6,9 +6,9 @@
     1. [About CLIverShelf](#about-clivershelf)
     2. [Aim](#aim)
     3. [Target Audience](#target-audience)
+    4. [Acknowledgements](#acknowledgements)
 2. [Setting up](#setting-up)
-3. [Acknowledgements](#acknowledgements)
-4. [Design](#design)
+3. [Design](#design)
     1. [Architecture](#architecture)
     2. [UI Component](#ui-component)
     3. [Logic Component](#logic-component)
@@ -17,18 +17,18 @@
             1. [Subcomponent Sales](#command-subcomponent-sales)
     4. [Model Component](#model-component)
     6. [Storage Component](#storage-component)
-5. [Implementation](#implementation)
+4. [Implementation](#implementation)
     1. [Adding an item](#adding-an-item)
     2. [Editing an item](#editing-an-item)
     3. [Listing all items](#listing-all-items)
     4. [Selling an item](#selling-an-item)
     5. [Generating sales report](#generating-sales-report)
     6. [Generating item markup price](#generating-item-markup-price)
-6. [Product Scope](#product-scope)
-7. [User stories](#user-stories)
-8. [Non-Functional Requirements](#non-functional-requirements)
-9. [Glossary](#glossary)
-10. [Instructions for manual testing](#instructions-for-manual-testing)
+5. [Product Scope](#product-scope)
+6. [User stories](#user-stories)
+7. [Non-Functional Requirements](#non-functional-requirements)
+8. [Glossary](#glossary)
+9. [Instructions for manual testing](#instructions-for-manual-testing)
 
 ## Introduction
 
@@ -47,7 +47,17 @@ to get developers and potential contributors to get familiarised with the implem
 ### Target Audience
 This developer guide is for developers who want to understand, test or improve the design of **CLIverShelf**.
 
-### How to Use This User Guide
+### Acknowledgements
+
+1. [AddressBook-level3](https://se-education.org/addressbook-level3/)
+   <br> Inspired to design the overall program structure like AB3.
+2. [AddressBook-level2](https://github.com/se-edu/addressbook-level2/blob/master/src/seedu/addressbook/parser/Parser.java)
+   <br> Adapted Parser code from AddressBook (Level 2) which makes efficient use of Pattern matching to filter valid
+   inputs from invalid inputs. Created our own Pattern Regex to simplify the parsing process to capture the needed matching
+   groups, which also improves code readability instead of writing many lines of code to parse word by word.
+3. [org.JSON](https://mvnrepository.com/artifact/org.json/json)
+   <br> JSON APIs from [json.org]((https://www.json.org/json-en.html)) were used to develop storage function.
+
 ## Setting up
 
 This section describes some pre-requisites and instructions to set up the application on your computer. Do follow the instructions closely
@@ -85,17 +95,6 @@ as any deviations may cause unexpected outcomes or cause application to not star
                 : Enter 'help' for the list of available commands :
                 ......................................................
 ```
-
-## Acknowledgements
-
-1. [AddressBook-level3](https://se-education.org/addressbook-level3/)
-   <br> Inspired to design the overall program structure like AB3.
-2. [AddressBook-level2](https://github.com/se-edu/addressbook-level2/blob/master/src/seedu/addressbook/parser/Parser.java)
-   <br> Adapted Parser code from AddressBook (Level 2) which makes efficient use of Pattern matching to filter valid 
-   inputs from invalid inputs. Created our own Pattern Regex to simplify the parsing process to capture the needed matching 
-   groups, which also improves code readability instead of writing many lines of code to parse word by word. 
-3. JSON
-   <br> Utilised JSON to store the data.
 
 ## Design
 
@@ -138,8 +137,9 @@ The class diagram below shows the associations between classes of the UI compone
 
 The `UI` component is made up of 2 classes:
 
-* `MessageBubble`: Responsible for the display of messages
-* `PredefinedMessages`: Holds the messages required for MessageBubble to print to console.
+* `MessageBubble`: Responsible for the display of messages.
+* `PredefinedMessages`: Holds some predefined messages required for MessageBubble to print to console.
+* `Wrapping`: Responsible for managing soft-wrapping messages and provide method to truncate message to desired length.
 
 The sequence diagram below illustrates how message can be printed without a MessageBubble instance.
 
@@ -147,7 +147,7 @@ The sequence diagram below illustrates how message can be printed without a Mess
 
 ### Logic component
 
-The class diagram below shows the associations between the classes that make up the `Logic` component.
+The `Logic` component is responsible for parsing and executing user commands. The class diagram below shows the associations between the classes that make up the `Logic` component.
 
 ![](diagrams/Logic_ClassDiagram.svg)
 
@@ -214,24 +214,28 @@ For more specific details, refer to implementation of [`SellCommand`](#selling-a
 
 ### Model component
 
-This sections describes how the classes in model component are structure and how they interact with each other.
+The `Model` component is responsible for handling the basic item management instructions. This sections describes how the classes in model component are structure and how they interact with each other.
 
 **API**:
 
 1. [Item.java](https://github.com/AY2122S1-CS2113T-F11-4/tp/blob/master/src/main/java/seedu/duke/model/Item.java)
     1. A `Item` object stores the information about a product in the bookstore:
-        1. `name` of the product, consists of alphabet, number, whitespace, underscore and round bracket. e.g., Time
-           Magazine.
-        2. `purchaseCost`, the non-negative price the bookstore owner paid for the product.
-        3. `sellingPrice`, the non-negative amount a buyer pays for the product.
+    2. `name` of the product, consists of alphabet, number, whitespace, underscore and round bracket. e.g., Time
+       Magazine.
+    3. `purchaseCost`, the non-negative price the bookstore owner paid for the product.
+    4. `sellingPrice`, the non-negative amount a buyer pays for the product.
+
 <br />
+
 2. [Shelf.java](https://github.com/AY2122S1-CS2113T-F11-4/tp/blob/master/src/main/java/seedu/duke/model/Shelf.java)
     1. A `Shelf` object stores `Item` objects.
     2. All `Item` are stored in one and only one of the `Shelf` objects.
     3. A `Shelf` object can be instantiated using the constructor `new Shelf(name: String)`
        or `ShelfList.getShelfList().addShelf(name: String)`
     4. All `Shelf` objets are automatically recorded by `ShelfList` at instantiation.
+
 <br />
+    
 3. [ShelfList.java](https://github.com/AY2122S1-CS2113T-F11-4/tp/blob/master/src/main/java/seedu/duke/model/ShelfList.java)
     1. The `ShelfList` stores all the shelves' data i.e., all `Shelf` objects
     2. `ShelfList` is implemented using Singleton Pattern. The single instance can be obtained
@@ -245,7 +249,7 @@ The Object Diagram below illustrates a sample state of the components.
 
 ![](diagrams/Model_ObjectDiagram.svg)
 
-The Sequence Diagram below illustrates how `Shelf` and `ShelfList` interacts when different `Shelf` instantiation
+The Sequence Diagram below illustrates how `Shelf` and `ShelfList` interacts with each other when different `Shelf` instantiation
 methods are used.
 
 ![](diagrams/Model_newShelf.svg)
@@ -525,7 +529,7 @@ This section defined the target users, and the value proposition.
 
 ### Value proposition
 
-Allows efficient and simplified management of inventory and finances of the store
+Allows efficient and simplified management of inventory and finances of the store.
 
 ## User Stories
 
