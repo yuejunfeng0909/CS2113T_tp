@@ -1,18 +1,18 @@
 package seedu.duke.ui;
 
+import java.util.ArrayList;
+
 //@@author yuejunfeng0909
 public class MessageBubble {
 
     static final String EDGE_HORIZONTAL_SYMBOL = ".";
     static final String EDGE_VERTICAL_SYMBOL = ":";
     static final String EDGE_TAIL = "...";
-    static int MAX_LINES = 1000;
     static int TERMINAL_WIDTH = 130;
     static int MAX_BUBBLE_WIDTH = 125;
     static int MAX_MESSAGE_LENGTH = MAX_BUBBLE_WIDTH - EDGE_TAIL.length() - 4;
 
-    private final String[] messages;
-    private int messagesCount;
+    private final ArrayList<String> messages;
     private int maxMessageLengthInBubble;
     private int bubbleWidth;
 
@@ -20,8 +20,7 @@ public class MessageBubble {
      * Convenience MessageBubble constructor.
      */
     public MessageBubble() {
-        messages = new String[MAX_LINES];
-        messagesCount = 0;
+        messages = new ArrayList<>();
         maxMessageLengthInBubble = 0;
         bubbleWidth = 0;
     }
@@ -52,7 +51,7 @@ public class MessageBubble {
     }
 
     public int getMessagesCount() {
-        return messagesCount;
+        return messages.size();
     }
 
     /**
@@ -64,13 +63,13 @@ public class MessageBubble {
         for (String line : msg.split("\n")) {
             if (line.length() < MAX_MESSAGE_LENGTH) {
                 updateBubbleWidth(line);
-                messages[messagesCount++] = line;
+                messages.add(line);
             } else {
                 Wrapping autoWrap = new Wrapping(line, MAX_MESSAGE_LENGTH);
                 while (!autoWrap.isEmpty()) {
                     String extracted = autoWrap.nextLine();
                     updateBubbleWidth(extracted);
-                    messages[messagesCount++] = extracted;
+                    messages.add(extracted);
                 }
             }
         }
@@ -113,9 +112,9 @@ public class MessageBubble {
      *
      * @param messages messages to be printed
      */
-    public void printMessage(String[] messages) {
-        for (int i = 0; i < messagesCount; i++) {
-            printMessage(messages[i]);
+    public void printMessage(ArrayList<String> messages) {
+        for (int i = 0; i < getMessagesCount(); i++) {
+            printMessage(messages.get(i));
         }
     }
 }
