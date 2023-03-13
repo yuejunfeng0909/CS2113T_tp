@@ -5,10 +5,11 @@ import seedu.duke.model.Item;
 import seedu.duke.model.Shelf;
 import seedu.duke.model.ShelfList;
 import seedu.duke.model.SoldItem;
-import seedu.duke.model.exception.DuplicateItemException;
-import seedu.duke.model.exception.DuplicateShelfException;
-import seedu.duke.model.exception.IllegalModelArgumentException;
-import seedu.duke.model.exception.ShelfNotExistException;
+import seedu.duke.model.exception.DeniedAccessToShelfModelException;
+import seedu.duke.model.exception.DuplicateShelfModelException;
+import seedu.duke.model.exception.IllegalArgumentModelException;
+import seedu.duke.model.exception.ShelfNotExistModelException;
+import seedu.duke.model.exception.DuplicateItemModelException;
 import seedu.duke.ui.MessageBubble;
 
 import java.io.File;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 //@@author yuejunfeng0909
@@ -46,18 +48,18 @@ public class Storage {
      * @throws IOException if CLIverShelf do not have IO privileges
      */
     public void saveData() throws IOException {
-        String nameOfAllShelves = shelfList.getAllShelvesName();
+        ArrayList<String> nameOfAllShelves = shelfList.getAllShelvesName();
         JSONObject storedData = new JSONObject();
 
-        if (nameOfAllShelves.isBlank()) {
+        if (nameOfAllShelves.isEmpty()) {
             storedData = sampleData();
         } else {
-            for (String nameOfShelf : nameOfAllShelves.split("\n")) {
+            for (String nameOfShelf : nameOfAllShelves) {
                 Shelf currentShelf = null;
 
                 try {
                     currentShelf = shelfList.getShelf(nameOfShelf, false);
-                } catch (ShelfNotExistException e) {
+                } catch (ShelfNotExistModelException | DeniedAccessToShelfModelException e) {
                     e.printStackTrace();
                 }
 
@@ -66,7 +68,7 @@ public class Storage {
                 shelfInfo.put("remarks", currentShelf.getRemarks());
 
                 JSONObject itemsInShelf = new JSONObject();
-                for (int i = 0; i < currentShelf.getSize(); i = i + 1) {
+                for (int i = 0; i < currentShelf.getItemCount(); i = i + 1) {
                     Item currentItem = currentShelf.getItem(i);
                     JSONObject itemDetail = new JSONObject();
                     itemDetail.put("id", currentItem.getID());
@@ -125,7 +127,8 @@ public class Storage {
     }
 
     protected void loadFromJson(JSONObject storedData)
-            throws DuplicateShelfException, IllegalModelArgumentException, DuplicateItemException {
+            throws DuplicateShelfModelException, IllegalArgumentModelException, DuplicateItemModelException,
+            DeniedAccessToShelfModelException {
         for (String shelfName : storedData.keySet()) {
             Shelf currentShelf = shelfList.addShelf(shelfName);
             try {
